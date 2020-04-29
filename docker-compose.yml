@@ -1,0 +1,15 @@
+version: '2.3'
+services:
+    sg-app:
+        build:
+            context: .
+            dockerfile: ./docker/golang/Dockerfile
+        image: sg-app:latest
+        container_name: sg-app
+        logging:
+            driver: json-file
+            options:
+                max-size: "1m"
+                max-file: "4"
+        ports:
+            - 5600:5600
